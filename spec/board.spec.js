@@ -23,7 +23,8 @@ describe('Board', function(){
       expect(board.won()).toEqual(true);
     });
     it('will return true if a column is the same', function(){
-      board.set('grid',[[1, "", 0], [1, 0, 1], [1, 1, 0]]);
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TEST");
+      board.set('grid',[["", 1, 0], [0, 1, 1], [1, 1, 0]]);
       expect(board.won()).toEqual(true);
     });
     it('will return false if there is a tie', function(){

@@ -11,6 +11,7 @@ const GameView = Backbone.View.extend({
   events: {
     'click .btn-savepl1': 'savePlayer',
     'click .btn-savepl2': 'savePlayer',
+    'click .btn-game': 'resetGame',
   },
 
   savePlayer: function(){
@@ -22,13 +23,14 @@ const GameView = Backbone.View.extend({
   },
 
   skyCell: function(cell){
-    console.log("GameView! Cell value" + cell[0]);
-    console.log("GameView! Cell position" + cell[1]);
-    console.log(" Game view player:" + (this.model.whoseTurn().idNum));
+    
     this.model.play((this.model.whoseTurn().idNum), cell[1]);
     // console.log("GameView! cellSelect" + cell.val);
   },
+  resetGame: function(event){
+    console.log(" ResetGame Button was clicked");
 
+  },
 
   render: function(){
     this.delegateEvents();
@@ -37,16 +39,10 @@ const GameView = Backbone.View.extend({
       el: this.$('#board')
     });
     this.listenTo(boardView, 'cellHappin', this.skyCell);
+
     boardView.render();
     return this;
   },
-
-  // cellSelect: function(val, position) {
-  //   // this.val = val;
-  //   console.log("GameView! cellSelect" + position);
-  //   console.log("BoardView! Selected cell " + val);
-  //   // this.trigger('select', this.val, this.position);
-  // },
 
 });
 

@@ -17,10 +17,10 @@ var Game = Backbone.Model.extend({
 
       var position = this.board.get('grid');
       position[posIndex[0]][posIndex[1]] = playerID;
-      console.log("Positing in the game model: " + position[posIndex[0]][posIndex[1]]);
+
       this.board.set('grid', position);
       // this.board.save();
-      console.log("This is the grid in game: " + this.board.get('grid'));
+
       if ((this.board.won()) || (this.board.full())) {
         this.gameOver = true;
       }

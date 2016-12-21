@@ -1,16 +1,14 @@
 td  {
-  background-color: blue;
-  width: 20vw;
-  height: 20vh;
+  background-color: #a7d3e2;
+  width: 40vw;
+  height: 40vh;
   border: 1vw solid white;
   box-sizing: border-box;
   color: white;
- text-align: center;
- font-size: 5em;
-
+  text-align: center;
+  font-size: 5em;
+  border-radius: 20%
 }
-
-
 
 body {
   margin: 25px;

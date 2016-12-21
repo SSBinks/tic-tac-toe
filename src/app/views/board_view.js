@@ -7,6 +7,7 @@ import $ from 'jquery';
 const BoardView = Backbone.View.extend({
   initialize: function(){
     console.log("Hello!");
+
   },
 
   render: function(){
@@ -40,6 +41,7 @@ const BoardView = Backbone.View.extend({
 
     this.$el.append(build);
   },
+
 
   cellSelect: function(cell) {
     // this.val = val;

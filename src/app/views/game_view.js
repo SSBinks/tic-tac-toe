@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 const GameView = Backbone.View.extend({
   initialize: function(){
-
+    this.listenTo(this.model, 'change', this.render);
   },
 
   events: {
@@ -22,11 +22,16 @@ const GameView = Backbone.View.extend({
   },
 
   skyCell: function(cell){
-    console.log("GameView! cellSelect" + cell);
+    console.log("GameView! Cell value" + cell[0]);
+    console.log("GameView! Cell position" + cell[1]);
+    console.log(" Game view player:" + (this.model.whoseTurn().idNum));
+    this.model.play((this.model.whoseTurn().idNum), cell[1]);
+    // console.log("GameView! cellSelect" + cell.val);
   },
 
 
   render: function(){
+    this.delegateEvents();
     const boardView = new BoardView({
       model: this.model.board,
       el: this.$('#board')

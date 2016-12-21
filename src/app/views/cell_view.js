@@ -9,11 +9,13 @@ import Game from 'app/models/game';
 const CellView = Backbone.View.extend( {
   initialize: function(options) {
     this.val = options.value;
+    console.log("Here are my options" + JSON.stringify(options));
     this.position = options.index;
     console.log("THis is options!" + options);
   },
 
   render: function() {
+    this.delegateEvents();
     this.$el.append(this.val);
 
     return this;

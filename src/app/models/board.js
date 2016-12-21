@@ -4,17 +4,17 @@ import Backbone from 'backbone';
 
 var Board = Backbone.Model.extend({
   defaults: {
-    grid: [[undefined, undefined, undefined], [undefined, undefined, undefined], [undefined, undefined, undefined]],
-    winner: undefined,
+    grid: [["", "", ""], ["", "", ""], ["", "", ""]],
+    winner: "",
     isWon:  false
   },
   initialize: function(options){
-    this.set('grid', [[undefined, undefined, undefined], [undefined, undefined, undefined], [undefined, undefined, undefined]]);
+    this.set('grid', [["", "", ""], ["", "", ""], ["", "", ""]]);
   },
   won: function(){
     var grid = this.get('grid');
-    var diagRight = grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2]  &&  grid[1][1] !== undefined;
-    var diagLeft = grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0]  &&  grid[1][1] !== undefined;
+    var diagRight = grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2]  &&  grid[1][1] !== "";
+    var diagLeft = grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0]  &&  grid[1][1] !== "";
     if (diagLeft){
       this.set('winner', grid[0][2]);
       this.set('isWon', true);
@@ -26,8 +26,8 @@ var Board = Backbone.Model.extend({
       return this.get('isWon');
     }
     for(var i = 0; i < 3; i++){
-      var vertical = grid[0][i] === grid[1][i] && grid[1][i] === grid[2][i] &&  grid[1][i] !== undefined;
-      var horizontal = grid[i][0] === grid[i][1] && grid[i][1] === grid[i][2]  &&  grid[i][1] !== undefined;
+      var vertical = grid[0][i] === grid[1][i] && grid[1][i] === grid[2][i] &&  grid[1][i] !== "";
+      var horizontal = grid[i][0] === grid[i][1] && grid[i][1] === grid[i][2]  &&  grid[i][1] !== "";
       if (vertical){
         this.set('winner', grid[0][i]) ;
         this.set('isWon', true);
@@ -47,7 +47,7 @@ var Board = Backbone.Model.extend({
   full: function() {
     var isFull = true;
     this.get('grid').forEach(function(subarray) {
-      if (subarray.includes(undefined)) {
+      if (subarray.includes("")) {
         isFull = false;
       }
     });

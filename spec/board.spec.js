@@ -15,28 +15,28 @@ describe('Board', function(){
       expect(board.won()).toEqual(false);
     });
     it('will return true if a row  is the same', function(){
-      board.set('grid', [[1, 1, 1,], [0, 0, undefined], [undefined, undefined, undefined]]);
+      board.set('grid', [[1, 1, 1,], [0, 0, ""], ["", "", ""]]);
       expect(board.won()).toEqual(true);
     });
     it('will return true if a diagnol is the same', function(){
-      board.set('grid', [[undefined, undefined, 0], [undefined, 0, 1], [0, 1, 0]]);
+      board.set('grid', [["", "", 0], ["", 0, 1], [0, 1, 0]]);
       expect(board.won()).toEqual(true);
     });
     it('will return true if a column is the same', function(){
-      board.set('grid',[[1, undefined, 0], [1, 0, 1], [1, 1, 0]]);
+      board.set('grid',[[1, "", 0], [1, 0, 1], [1, 1, 0]]);
       expect(board.won()).toEqual(true);
     });
     it('will return false if there is a tie', function(){
-      board.set('grid', [[1, 0, 1], [undefined, undefined, undefined], [undefined, undefined, undefined]]);
+      board.set('grid', [[1, 0, 1], ["", "", ""], ["", "", ""]]);
       expect(board.won()).toEqual(false);
     });
     it('will have this winner to be 1', function(){
-      board.set('grid', [[1, undefined, 0], [1, 0, 1], [1, 1, 0]]);
+      board.set('grid', [[1, "", 0], [1, 0, 1], [1, 1, 0]]);
       board.won();
       expect(board.get('winner')).toEqual(1);
     });
     it('will return 0 as the winner', function(){
-      board.set('grid', [[undefined, undefined, 0], [undefined, 0, 1], [0, 1, 0]]);
+      board.set('grid', [["", "", 0], ["", 0, 1], [0, 1, 0]]);
       board.won();
       expect(board.get('winner')).toEqual(0);
     });
@@ -54,12 +54,12 @@ describe('Board', function(){
     });
 
     it('should return false if the board is not filled (has undefined spaces)', function() {
-      board.set('grid',[[1, undefined, 0], [1, 0, 1], [1, 1, 0]]);
+      board.set('grid',[[1, "", 0], [1, 0, 1], [1, 1, 0]]);
       expect(board.full()).toEqual(false);
     });
 
-    it('should return false if the board is all unfilled (all undefined spaces)', function() {
-      board.set('grid', [[undefined, undefined, undefined], [undefined, undefined, undefined], [undefined, undefined, undefined]]);
+    it('should return false if the board is all unfilled (all undefinded spaces)', function() {
+      board.set('grid', [["", "", ""], ["", "", ""], ["", "", ""]]);
       expect(board.full()).toEqual(false);
     });
   });

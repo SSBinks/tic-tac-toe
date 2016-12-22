@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/app.css">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 </head>
 <body>
   <div id="application">
@@ -14,20 +15,26 @@
     <main>
       <section id="game">
         <!-- We need to make a larger div to cover players -->
-        <div id="playerOne">
-          <label>
-            Player One
-            <input type="text" name="name">
-            <h3 class="button btn-savep1">Save</h3>
-          </label>
-        </div>
-        <div id="playerTwo">
-          <label>
-            Player Two
-            <input type="text" name="name">
-            <h3 class="button btn-savep2">Save</h3>
-            <!-- need to clean the player input -->
-          </label>
+        <div class="row">
+          <div class="large-12 columns">
+            <div class="players">
+            <div  class="small-4 columns">
+              <input  type="text" name="name" placeholder="Name of First Player">
+            </div>
+            <div  id="playerOne" class="small-4 columns">
+            <h4> Player: </h4>
+            </div>
+            <div  class="small-4 columns">
+              <input  type="text" name="playname" placeholder="Name of Second Player">
+            </div>
+            <div  id="playerTwo" class="small-4 columns">
+            <h4> Player: </h4>
+            </div>
+            <div class="small-2 columns">
+              <h3 id="enter-name"class="button postfix">Enter Names</h3>
+            </div>
+            </div>
+          </div>
         </div>
         <h3 class="button btn-game">New Game</h3>
         <table id="board">

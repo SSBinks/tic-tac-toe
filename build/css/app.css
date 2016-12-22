@@ -12,10 +12,13 @@ td  {
 
 body {
   margin: 25px;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 #board {
   margin: 10px;
 }
-header {
+header *{
   text-align:  center;
+  font-family: 'Gloria Hallelujah', cursive;
+
 }

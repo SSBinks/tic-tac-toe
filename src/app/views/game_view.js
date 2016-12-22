@@ -6,24 +6,28 @@ import $ from 'jquery';
 const GameView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.model, 'change', this.render);
+    this.playOneModal = this.$('#playerOne');
+    this.playOneModal.hide();
+    this.playTwoModal = this.$('#playerTwo');
+    this.playTwoModal.hide();
+
+
+    this.input = {
+      firstPlayer: this.$('.players input[name="name"]'),
+      secondPlayer: this.$('.players input[name="playname"]')
+    };
   },
 
   events: {
-    'click .btn-savepl1': 'savePlayer',
-    'click .btn-savepl2': 'savePlayer',
     'click .btn-game': 'resetGame',
   },
 
   savePlayer: function(){
-    var name = {
-      // We still need to complete this
-      // name: this.$()
 
-    };
   },
 
   skyCell: function(cell){
-    
+
     this.model.play((this.model.whoseTurn().idNum), cell[1]);
     // console.log("GameView! cellSelect" + cell.val);
   },

@@ -11,19 +11,24 @@ const GameView = Backbone.View.extend({
     this.playTwoModal = this.$('#playerTwo');
     this.playTwoModal.hide();
 
-
-    this.input = {
-      firstPlayer: this.$('.players input[name="name"]'),
-      secondPlayer: this.$('.players input[name="playname"]')
-    };
   },
 
   events: {
     'click .btn-game': 'resetGame',
+    'click #enter-name': 'savePlayer'
   },
 
   savePlayer: function(){
-
+    console.log("Names entered");
+    this.inputpl1 = {
+      firstPlayer: this.$('.players input[name="name"]').val(),
+    };
+    this.model.playerOne.userName = this.inputpl1;
+    console.log(this.model.playerOne.userName);
+    this.inputpl2 = {
+      secondPlayer: this.$('.players input[name="playname"]').val()
+    };
+    this.model.playerTwo.userName = this.input2;
   },
 
   skyCell: function(cell){
